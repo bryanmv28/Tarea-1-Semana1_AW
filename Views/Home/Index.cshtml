@@ -1,0 +1,146 @@
+﻿@model Tarea1_Semana1_AW.Models.PersonaModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bryan Medina – Perfil Personal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/perfil.css" />
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <header class="perfil-header">
+            <div class="avatar-contenedor">
+                <div class="avatar">BM</div>
+            </div>
+            <div class="header-datos">
+                <h1 class="header-nombre">
+                    Bryan <span class="nombre-acento">Medina</span>
+                </h1>
+                <p class="header-subtitulo">
+                    <span class="punto-estado"></span>
+                    Estudiante de @Model.Carrera &middot; @Model.Universidad
+                </p>
+            </div>
+        </header>
+
+        <div class="perfil-grid">
+
+            <!-- Datos personales -->
+            <div class="tarjeta">
+                <div class="tarjeta-etiqueta">Datos personales</div>
+                <ul class="info-lista">
+                    <li>
+                        <div class="info-grupo">
+                            <span class="info-etiqueta">Fecha de nacimiento</span>
+                            <span class="info-valor">@Model.FechaNacimiento</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-grupo">
+                            <span class="info-etiqueta">Edad</span>
+                            <span class="info-valor">@Model.Edad años</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-grupo">
+                            <span class="info-etiqueta">Dirección</span>
+                            <span class="info-valor">@Model.Direccion</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-grupo">
+                            <span class="info-etiqueta">Teléfono</span>
+                            <span class="info-valor">@Model.Telefono</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Descripción -->
+            <div class="tarjeta">
+                <div class="tarjeta-etiqueta">Descripción</div>
+                <p class="bio-texto">@Model.Bio</p>
+            </div>
+
+            <!-- Formación académica -->
+            <div class="tarjeta">
+                <div class="tarjeta-etiqueta">Formación académica</div>
+                <ul class="info-lista">
+                    <li>
+                        <div class="info-grupo">
+                            <span class="info-etiqueta">Universidad</span>
+                            <span class="info-valor">@Model.Universidad</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-grupo">
+                            <span class="info-etiqueta">Carrera</span>
+                            <span class="info-valor">@Model.Carrera</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-grupo">
+                            <span class="info-etiqueta">Año de inicio</span>
+                            <span class="info-valor">@Model.AnioInicio</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Calculadora -->
+            <div class="tarjeta tarjeta-completa">
+                <div class="tarjeta-etiqueta">Calculadora</div>
+                <div class="calc-contenedor">
+                    <div class="calculadora">
+                        <div class="calc-pantalla">
+                            <div class="calc-expresion" id="calc-expresion"></div>
+                            <div class="calc-resultado" id="calc-display">0</div>
+                        </div>
+                        <div class="calc-botones">
+                            <button class="btn btn-limpiar btn-doble" onclick="calcLimpiar()">AC</button>
+                            <button class="btn btn-limpiar" onclick="calcBorrar()">⌫</button>
+                            <button class="btn btn-operador" onclick="calcOperador('/')">÷</button>
+
+                            <button class="btn" onclick="calcNumero('7')">7</button>
+                            <button class="btn" onclick="calcNumero('8')">8</button>
+                            <button class="btn" onclick="calcNumero('9')">9</button>
+                            <button class="btn btn-operador" onclick="calcOperador('*')">×</button>
+
+                            <button class="btn" onclick="calcNumero('4')">4</button>
+                            <button class="btn" onclick="calcNumero('5')">5</button>
+                            <button class="btn" onclick="calcNumero('6')">6</button>
+                            <button class="btn btn-operador" onclick="calcOperador('-')">−</button>
+
+                            <button class="btn" onclick="calcNumero('1')">1</button>
+                            <button class="btn" onclick="calcNumero('2')">2</button>
+                            <button class="btn" onclick="calcNumero('3')">3</button>
+                            <button class="btn btn-operador" onclick="calcOperador('+')">+</button>
+
+                            <button class="btn" onclick="calcSigno()">+/−</button>
+                            <button class="btn" onclick="calcNumero('0')">0</button>
+                            <button class="btn" onclick="calcPunto()">.</button>
+                            <button class="btn btn-igual" onclick="calcIgual()">=</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="perfil-footer">
+            &copy; 2026 @Model.NombreCompleto &middot; @Model.Direccion
+        </footer>
+
+    </div>
+
+    <script src="~/js/calculadora.js"></script>
+</body>
+</html>
